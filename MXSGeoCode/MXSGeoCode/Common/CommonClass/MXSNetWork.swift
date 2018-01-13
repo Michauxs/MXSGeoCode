@@ -13,7 +13,7 @@ class MXSNetWork : NSObject {
 	
 	#if DEBUG
 //		let RemoteRootURL = "http://altlys.com:9000/"
-		let RemoteRootURL = "http://192.168.100.174:9000/"
+		let RemoteRootURL = "http://192.168.200.223:9000/"
 	#else
 		let RemoteRootURL = "http://altlys.com:9000/"
 	#endif
@@ -33,6 +33,11 @@ class MXSNetWork : NSObject {
 	public func requestRemote(route:String, para:Dictionary<String, Any>, completeBlock:@escaping (Dictionary<String, Any>) -> Void) {
 		
 		Alamofire.request( RemoteRootURL + route, method: .post, parameters: para, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+			
+//			let result = response.result.value
+//			if ((result as! Dictionary<String, Any>)["result"] != nil) {
+//				
+//			}
 			completeBlock((response.result.value as! Dictionary<String, Any>)["result"] as! Dictionary<String, Any>)
 		}
 	}

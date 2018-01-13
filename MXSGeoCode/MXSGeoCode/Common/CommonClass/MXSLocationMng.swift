@@ -19,6 +19,9 @@ class MXSLocationMng: NSObject {
 	}()
 	
 	public func getLocation(_ addr:String, completeBlock:@escaping (Any) -> Void) {
+		
+//		self.geoCoder
+		
 		self.geoCoder.geocodeAddressString(addr) { (pls: [CLPlacemark]?, error: Error?) in
 			if error == nil {
 				guard let plsResult = pls else {
@@ -27,6 +30,9 @@ class MXSLocationMng: NSObject {
 				}
 				let firstPL = plsResult.first
 				completeBlock(firstPL!)
+			}
+			else {
+				completeBlock(NSNumber.init(value: false))
 			}
 		}
 	}
