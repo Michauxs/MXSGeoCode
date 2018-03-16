@@ -109,24 +109,27 @@ class MXSHomeVC: UIViewController {
 	
 	@objc func singleBtnClick () {
 		
-		let path = "/Users/alfredyang/Desktop/DongDa/DongDaData/location.plist"
-		let geoData = NSArray(contentsOfFile: path);
+//		let path = "/Users/alfredyang/Desktop/DongDa/DongDaData/location.plist"
+//		let geoData = NSArray(contentsOfFile: path);
+//
+//		let unpath = "/Users/alfredyang/Desktop/DongDa/DongDaData/unlocation.plist"
+//		let ungeoData = NSArray(contentsOfFile: unpath);
+//
+//		print(ungeoData!)
+//		print(geoData!)
 		
-		let unpath = "/Users/alfredyang/Desktop/DongDa/DongDaData/unlocation.plist"
-		let ungeoData = NSArray(contentsOfFile: unpath);
-		
-		print(ungeoData!)
-		print(geoData!)
-//		MXSLocationMng.shared.getLocation("大兴区天宫院街道龙湖时代天街2层2F-53", completeBlock: { (place) in
-//			if place is MXSNothing {
-//				print("nil")
-//			} else if place is NSNumber {
-//				print("no")
-//			}  else {
-//				print((place as! CLPlacemark).location?.coordinate.latitude as Any)
-//				print((place as! CLPlacemark).location?.coordinate.longitude as Any)
-//			}
-//		})
+//		顺义区中粮祥云小镇南区1楼
+//		朝阳区奥体中心
+		MXSLocationMng.shared.getLocation("顺义区中粮·祥云小镇南区", completeBlock: { (place) in
+			if place is MXSNothing {
+				print("nil")
+			} else if place is NSNumber {
+				print("no")
+			}  else {
+				print((place as! CLPlacemark).location?.coordinate.latitude as Any)
+				print((place as! CLPlacemark).location?.coordinate.longitude as Any)
+			}
+		})
 	}
 	
 	@objc func startBtnClick () {
